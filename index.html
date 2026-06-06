@@ -2267,26 +2267,24 @@
             gap: 12px
         }
 
-        /* Challenge example box (page 15) */
-        .challenge-example {
-            background: var(--bg);
-            border-radius: var(--radius-sm);
-            padding: 14px 16px
+        /* Challenge detail block */
+        .challenge-detail {
+            display: none;
+            margin-top: 14px;
+            padding-top: 14px;
+            border-top: 1px solid rgba(200, 132, 58, 0.22);
         }
 
-        .challenge-example p {
+        .challenge-card.active .challenge-detail {
+            display: block;
+        }
+
+        .challenge-detail .task {
             font-size: 13px;
-            color: var(--muted);
-            margin-bottom: 4px
-        }
-
-        .challenge-example p:last-child {
-            margin-bottom: 0
-        }
-
-        .challenge-example .task {
-            color: var(--teal);
-            font-weight: 600
+            color: var(--amber);
+            font-weight: 700;
+            line-height: 1.55;
+            margin: 0;
         }
 
         /* ── MOBILE FIRST ───────────────────────────────────────────
@@ -4342,103 +4340,106 @@
 
         <!-- PAGE 15 ─ VALUE EXPLANATION CHALLENGE BANK ───────────────────────── -->
         <div class="page" id="page-15">
-            <div class="page-eyebrow">Practice</div>
+            <div class="page-eyebrow amber">Practice Upgrade</div>
             <h1 class="page-title">Value Explanation Challenge Bank</h1>
-            <p class="page-subtitle">Add one difficulty at a time. The goal is to keep the value explanation clear when
-                the conversation becomes more realistic.</p>
+            <p class="page-subtitle">Once the value explanation is clear, try the same prompt with one extra difficulty.
+                Add one challenge at a time.</p>
+            <p class="tap-hint">Tap any card to expand it.</p>
+
             <div class="challenge-grid mt-8">
 
-                <div class="challenge-card" onclick="this.classList.toggle('active')">
+                <div class="challenge-card" onclick="toggleChallengeCard(this)">
                     <div class="challenge-icon"><svg width="16" height="16" style="color:var(--amber)">
                             <use href="#icon-bulb" />
                         </svg></div>
                     <div class="challenge-title">Short Version</div>
                     <div class="challenge-quote">&#8220;Can you give me the short version?&#8221;</div>
-                    <div class="challenge-example" style="display:none;margin-top:12px">
-                        <p><strong class="task">Challenge:</strong> The client wants brevity. Explain the value in two
-                            or three sentences.</p>
+                    <div class="challenge-detail">
+                        <p class="task">Explain the value in two or three sentences. Keep the problem, value, and next
+                            step clear.</p>
                     </div>
                 </div>
 
-                <div class="challenge-card" onclick="this.classList.toggle('active')">
+                <div class="challenge-card" onclick="toggleChallengeCard(this)">
                     <div class="challenge-icon"><svg width="16" height="16" style="color:var(--amber)">
                             <use href="#icon-bulb" />
                         </svg></div>
                     <div class="challenge-title">Skeptical Client</div>
                     <div class="challenge-quote">&#8220;Every vendor says the same thing. Why would this be
                         different?&#8221;</div>
-                    <div class="challenge-example" style="display:none;margin-top:12px">
-                        <p><strong class="task">Challenge:</strong> The client has heard generic value claims before.
-                            Respond specifically, without becoming defensive.</p>
+                    <div class="challenge-detail">
+                        <p class="task">Do not defend generally. Make the value specific to their situation.</p>
                     </div>
                 </div>
 
-                <div class="challenge-card" onclick="this.classList.toggle('active')">
+                <div class="challenge-card" onclick="toggleChallengeCard(this)">
                     <div class="challenge-icon"><svg width="16" height="16" style="color:var(--amber)">
                             <use href="#icon-bulb" />
                         </svg></div>
                     <div class="challenge-title">Features Only</div>
                     <div class="challenge-quote">&#8220;Just tell me what features it has.&#8221;</div>
-                    <div class="challenge-example" style="display:none;margin-top:12px">
-                        <p><strong class="task">Challenge:</strong> The client only wants a feature list. Acknowledge
-                            the request, then connect one key feature to a clear outcome.</p>
+                    <div class="challenge-detail">
+                        <p class="task">Acknowledge the feature request, then translate one key feature into a clear
+                            client outcome.</p>
                     </div>
                 </div>
 
-                <div class="challenge-card" onclick="this.classList.toggle('active')">
+                <div class="challenge-card" onclick="toggleChallengeCard(this)">
                     <div class="challenge-icon"><svg width="16" height="16" style="color:var(--amber)">
                             <use href="#icon-bulb" />
                         </svg></div>
                     <div class="challenge-title">Interruption</div>
                     <div class="challenge-quote">The client interrupts before you finish explaining.</div>
-                    <div class="challenge-example" style="display:none;margin-top:12px">
-                        <p><strong class="task">Challenge:</strong> You get cut off mid-explanation. Recover calmly and
-                            continue from where you were.</p>
+                    <div class="challenge-detail">
+                        <p class="task">Pause, acknowledge the interruption, then return to the clearest value point.
+                        </p>
                     </div>
                 </div>
 
-                <div class="challenge-card" onclick="this.classList.toggle('active')">
+                <div class="challenge-card" onclick="toggleChallengeCard(this)">
                     <div class="challenge-icon"><svg width="16" height="16" style="color:var(--amber)">
                             <use href="#icon-bulb" />
                         </svg></div>
                     <div class="challenge-title">Non-Technical Client</div>
                     <div class="challenge-quote">The client does not follow technical language.</div>
-                    <div class="challenge-example" style="display:none;margin-top:12px">
-                        <p><strong class="task">Challenge:</strong> Explain the same value without any technical terms
-                            or jargon.</p>
+                    <div class="challenge-detail">
+                        <p class="task">Explain the same value without technical terms. Focus on what changes for the
+                            client.</p>
                     </div>
                 </div>
 
-                <div class="challenge-card" onclick="this.classList.toggle('active')">
+                <div class="challenge-card" onclick="toggleChallengeCard(this)">
                     <div class="challenge-icon"><svg width="16" height="16" style="color:var(--amber)">
                             <use href="#icon-bulb" />
                         </svg></div>
                     <div class="challenge-title">So What?</div>
                     <div class="challenge-quote">&#8220;OK, but what does that actually mean for us?&#8221;</div>
-                    <div class="challenge-example" style="display:none;margin-top:12px">
-                        <p><strong class="task">Challenge:</strong> The client wants specifics. Make the value concrete
-                            and connected to their situation.</p>
+                    <div class="challenge-detail">
+                        <p class="task">Make the value concrete. Name the practical improvement the client would
+                            actually see.</p>
                     </div>
                 </div>
 
-                <div class="challenge-card" onclick="this.classList.toggle('active')">
+                <div class="challenge-card" onclick="toggleChallengeCard(this)">
                     <div class="challenge-icon"><svg width="16" height="16" style="color:var(--amber)">
                             <use href="#icon-bulb" />
                         </svg></div>
                     <div class="challenge-title">We Have Something Similar</div>
                     <div class="challenge-quote">&#8220;We already have something that does that.&#8221;</div>
-                    <div class="challenge-example" style="display:none;margin-top:12px">
-                        <p><strong class="task">Challenge:</strong> The client is comparing. Explain the value without
-                            dismissing what they already have.</p>
+                    <div class="challenge-detail">
+                        <p class="task">Do not dismiss what they have. Clarify what works now, then explain where the
+                            added value may be.</p>
                     </div>
                 </div>
 
             </div>
-            <div class="optional-q mt-20">
-                <div class="optional-q-label">Rule</div>
-                <div class="optional-q-text">Add one challenge at a time. The goal is not pressure for its own sake
-                    &#8212; it is to keep the value explanation clear and specific when the conversation becomes more
-                    realistic.</div>
+
+            <div class="card mt-20">
+                <div class="section-label mb-8">How to use these</div>
+                <p style="font-size:14px;color:var(--muted);line-height:1.65">Choose one prompt from the Practice
+                    Prompts page and one challenge from this page. Practise using one skill or the full framework. Add
+                    one challenge at a time. The goal is not to sound perfect. The goal is to keep the value explanation
+                    clear, specific, useful, and professional when the client asks for more detail or pushes back.</p>
             </div>
         </div>
 
@@ -5207,14 +5208,17 @@
         }
 
         // Challenge card expand — show .challenge-example on toggle
-        document.addEventListener('click', function (e) {
-            const card = e.target.closest('.challenge-card');
-            if (!card) return;
-            const example = card.querySelector('.challenge-example');
-            if (example) {
-                example.style.display = card.classList.contains('active') ? 'block' : 'none';
+        function toggleChallengeCard(card) {
+            const wasActive = card.classList.contains('active');
+
+            document.querySelectorAll('.challenge-card').forEach(function (c) {
+                c.classList.remove('active');
+            });
+
+            if (!wasActive) {
+                card.classList.add('active');
             }
-        });
+        }
 
         // Close jump panel on Escape
         document.addEventListener('keydown', function (e) {
